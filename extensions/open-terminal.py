@@ -9,7 +9,6 @@ import subprocess
 class OpenTerminalExtension(GObject.GObject, Nautilus.MenuProvider):
     def _open_terminal(self, file: Nautilus.FileInfo) -> None:
         filename = unquote(file.get_uri()[7:])
-        # Open terminal in a new process without blocking Nautilus
         subprocess.Popen(["kitty"], cwd=filename)
 
     def menu_activate_cb(

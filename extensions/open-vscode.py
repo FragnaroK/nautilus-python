@@ -9,7 +9,6 @@ import subprocess
 class OpenVSCodeExtension(GObject.GObject, Nautilus.MenuProvider):
     def _open_vscode(self, file: Nautilus.FileInfo) -> None:
         filename = unquote(file.get_uri()[7:])
-        # Open Visual Studio Code in the selected directory or file
         subprocess.Popen(["code", filename])
 
     def menu_activate_cb(

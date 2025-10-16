@@ -7,7 +7,6 @@ import subprocess
 class OpenNvimExtension(GObject.GObject, Nautilus.MenuProvider):
     def _open_nvim(self, file: Nautilus.FileInfo) -> None:
         filename = unquote(file.get_uri()[7:])
-        # Open Neovim in the selected directory or file inside kitty terminal
         subprocess.Popen(["kitty", "nvim", filename])
 
     def menu_activate_cb(
